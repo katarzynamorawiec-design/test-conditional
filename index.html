@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test z okresów warunkowych (Conditionals)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .section {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            font-size: 1.1rem;
+            color: #2980b9;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        .question {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        input[type="text"] {
+            padding: 5px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            margin: 0 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #27ae60;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #219150;
+        }
+        #report {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        .status-pass {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .status-fail {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .error-item {
+            background-color: #fdf2f2;
+            border-left: 4px solid #e74c3c;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+        .correct-answer {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .user-answer {
+            color: #c0392b;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Test: Conditionals & Time Clauses</h1>
+
+    <form id="quizForm">
+        <!-- SEKCJA 1 -->
+        <div class="section">
+            <h2>1. Uzupełnij zdania zerowego okresu warunkowego właściwą formą czasownika:</h2>
+            <div class="question">1. If you <input type="text" id="q1_1"> (heat) ice, it <input type="text" id="q1_2"> (melt).</div>
+            <div class="question">2. Flowers <input type="text" id="q2_1"> (die) if you <input type="text" id="q2_2"> (not water) them.</div>
+            <div class="question">3. People <input type="text" id="q3_1"> (get) burned if they <input type="text" id="q3_2"> (touch) fire.</div>
+            <div class="question">4. If students <input type="text" id="q4_1"> (be) late, the teacher <input type="text" id="q4_2"> (get) angry.</div>
+            <div class="question">5. Cats <input type="text" id="q5_1"> (chase) a mouse if they <input type="text" id="q5_2"> (see) it.</div>
+            <div class="question">6. If you <input type="text" id="q6_1"> (press) the button, the computer <input type="text" id="q6_2"> (start).</div>
+            <div class="question">7. Children <input type="text" id="q7_1"> (feel) sick if they <input type="text" id="q7_2"> (eat) too much candy.</div>
+            <div class="question">8. If water <input type="text" id="q8_1"> (reach) 100°C, it <input type="text" id="q8_2"> (boil).</div>
+        </div>
+
+        <!-- SEKCJA 2 -->
+        <div class="section">
+            <h2>2. Uzupełnij zdania pierwszego okresu warunkowego właściwą formą czasownika:</h2>
+            <div class="question">9. If it <input type="text" id="q9_1"> (rain) tomorrow, we <input type="text" id="q9_2"> (stay) at home.</div>
+            <div class="question">10. You <input type="text" id="q10_1"> (fail) the test if you <input type="text" id="q10_2"> (not study).</div>
+            <div class="question">11. If I <input type="text" id="q11_1"> (see) Anna, I <input type="text" id="q11_2"> (tell) her about the trip.</div>
+            <div class="question">12. We <input type="text" id="q12_1"> (be) late if the bus <input type="text" id="q12_2"> (not come) soon.</div>
+            <div class="question">13. If they <input type="text" id="q13_1"> (invite) me, I <input type="text" id="q13_2"> (go) to the party.</div>
+            <div class="question">14. She <input type="text" id="q14_1"> (be) sad if her friend <input type="text" id="q14_2"> (not call).</div>
+            <div class="question">15. If we <input type="text" id="q15_1"> (not hurry), we <input type="text" id="q15_2"> (miss) the train.</div>
+            <div class="question">16. He <input type="text" id="q16_1"> (help) you if you <input type="text" id="q16_2"> (ask) him.</div>
+        </div>
+
+        <!-- SEKCJA 3 -->
+        <div class="section">
+            <h2>3. Uzupełnij zdania w 0 lub 1 okresie warunkowym:</h2>
+            <div class="question">17. If you <input type="text" id="q17_1"> (heat) water to 100°C, it <input type="text" id="q17_2"> (boil).</div>
+            <div class="question">18. If it <input type="text" id="q18_1"> (rain) tomorrow, we <input type="text" id="q18_2"> (stay) at home.</div>
+            <div class="question">19. People <input type="text" id="q19_1"> (get) sick if they <input type="text" id="q19_2"> (eat) old food.</div>
+            <div class="question">20. If I <input type="text" id="q20_1"> (finish) my homework, I <input type="text" id="q20_2"> (watch) TV.</div>
+            <div class="question">21. If you <input type="text" id="q21_1"> (touch) fire, you <input type="text" id="q21_2"> (get) burned.</div>
+            <div class="question">22. If she <input type="text" id="q22_1"> (not study), she <input type="text" id="q22_2"> (fail) the test.</div>
+            <div class="question">23. If you <input type="text" id="q23_1"> (mix) red and white, you <input type="text" id="q23_2"> (get) pink.</div>
+            <div class="question">24. He <input type="text" id="q24_1"> (help) you if you <input type="text" id="q24_2"> (ask) him.</div>
+        </div>
+
+        <!-- SEKCJA 4 -->
+        <div class="section">
+            <h2>4. Uzupełnij zdania odpowiednią formą czasownika:</h2>
+            <div class="question">25. I will call you when I <input type="text" id="q25_1"> (get) home.</div>
+            <div class="question">26. She will start cooking as soon as she <input type="text" id="q26_1"> (arrive).</div>
+            <div class="question">27. We won't leave until you <input type="text" id="q27_1"> (finish) your homework.</div>
+            <div class="question">28. He will go to bed after he <input type="text" id="q28_1"> (watch) the film.</div>
+            <div class="question">29. They will play football before the sun <input type="text" id="q29_1"> (set).</div>
+            <div class="question">30. I will help you when you <input type="text" id="q30_1"> (need) me.</div>
+            <div class="question">31. She will be happy as soon as she <input type="text" id="q31_1"> (see) her present.</div>
+            <div class="question">32. He won't open the gift until his friends <input type="text" id="q32_1"> (come).</div>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Zakończ i sprawdź wynik</button>
+    </form>
+
+    <div id="report">
+        <h2>Raport końcowy</h2>
+        <div id="summary"></div>
+        <hr>
+        <h3>Lista błędów:</h3>
+        <div id="errorsList"></div>
+    </div>
+
+    <script>
+        const answers = {
+            // Sekcja 1 (0 Conditional)
+            q1_1: ["heat"], q1_2: ["melts"],
+            q2_1: ["die"], q2_2: ["don't water", "do not water"],
+            q3_1: ["get"], q3_2: ["touch"],
+            q4_1: ["are"], q4_2: ["gets"],
+            q5_1: ["chase"], q5_2: ["see"],
+            q6_1: ["press"], q6_2: ["starts"],
+            q7_1: ["feel"], q7_2: ["eat"],
+            q8_1: ["reaches"], q8_2: ["boils"],
+
+            // Sekcja 2 (1st Conditional)
+            q9_1: ["rains"], q9_2: ["will stay", "'ll stay"],
+            q10_1: ["will fail", "'ll fail"], q10_2: ["don't study", "do not study"],
+            q11_1: ["see"], q11_2: ["will tell", "'ll tell"],
+            q12_1: ["will be", "'ll be"], q12_2: ["doesn't come", "does not come"],
+            q13_1: ["invite"], q13_2: ["will go", "'ll go"],
+            q14_1: ["will be", "'ll be"], q14_2: ["doesn't call", "does not call"],
+            q15_1: ["don't hurry", "do not hurry"], q15_2: ["will miss", "'ll miss"],
+            q16_1: ["will help", "'ll help"], q16_2: ["ask"],
+
+            // Sekcja 3 (0 / 1st Conditional)
+            q17_1: ["heat"], q17_2: ["boils"],
+            q18_1: ["rains"], q18_2: ["will stay", "'ll stay"],
+            q19_1: ["get"], q19_2: ["eat"],
+            q20_1: ["finish"], q20_2: ["will watch", "'ll watch"],
+            q21_1: ["touch"], q21_2: ["get"],
+            q22_1: ["doesn't study", "does not study"], q22_2: ["will fail", "'ll fail"],
+            q23_1: ["mix"], q23_2: ["get"],
+            q24_1: ["will help", "'ll help"], q24_2: ["ask"],
+
+            // Sekcja 4 (Time Clauses)
+            q25_1: ["get"],
+            q26_1: ["arrives"],
+            q27_1: ["finish"],
+            q28_1: ["watches"],
+            q29_1: ["sets"],
+            q30_1: ["need"],
+            q31_1: ["sees"],
+            q32_1: ["come"]
+        };
+
+        function checkAnswers() {
+            let totalGaps = Object.keys(answers).length;
+            let correctGaps = 0;
+            let errorsHTML = "";
+
+            for (let id in answers) {
+                let inputElem = document.getElementById(id);
+                let userVal = inputElem.value.trim();
+                let validAnswers = answers[id];
+                
+                // Sprawdzanie bez uwzględniania wielkości liter
+                let isCorrect = validAnswers.some(ans => ans.toLowerCase() === userVal.toLowerCase());
+
+                if (isCorrect) {
+                    correctGaps++;
+                    inputElem.style.borderColor = "#27ae60";
+                    inputElem.style.backgroundColor = "#e8f8f5";
+                } else {
+                    inputElem.style.borderColor = "#e74c3c";
+                    inputElem.style.backgroundColor = "#fdf2f2";
+                    
+                    let questionText = inputElem.parentElement.innerText.replace(/\n/g, ' ');
+                    let displayUserVal = userVal === "" ? "(brak odpowiedzi)" : userVal;
+                    
+                    errorsHTML += `
+                        <div class="error-item">
+                            <strong>Miejsca w zdaniu:</strong> "${questionText}"<br>
+                            Twoja odpowiedź: <span class="user-answer">${displayUserVal}</span> | 
+                            Poprawna odpowiedź: <span class="correct-answer">${validAnswers.join(' / ')}</span>
+                        </div>
+                    `;
+                }
+            }
+
+            let percentage = Math.round((correctGaps / totalGaps) * 100);
+            let isPassed = percentage >= 60; // Próg zaliczenia: 60%
+
+            let summaryHTML = `
+                <p><strong>Wynik:</strong> ${correctGaps} / ${totalGaps} luk (${percentage}%)</p>
+                <p><strong>Status:</strong> <span class="${isPassed ? 'status-pass' : 'status-fail'}">${isPassed ? 'ZALICZONE' : 'NIEZALICZONE (wymagane min. 60%)'}</span></p>
+            `;
+
+            document.getElementById("summary").innerHTML = summaryHTML;
+            document.getElementById("errorsList").innerHTML = errorsHTML || "<p>Brak błędów! Świetna robota!</p>";
+            
+            let reportElem = document.getElementById("report");
+            reportElem.style.display = "block";
+            reportElem.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
